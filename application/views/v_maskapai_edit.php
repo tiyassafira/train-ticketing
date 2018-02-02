@@ -345,18 +345,10 @@
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
           </a>
         </li>
-        <li class="treeview active">
-          <a href="">
-            <i class="fa fa-map"></i>
-            <span>Rutes</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
+        <li>
+          <a href="<?php echo base_url('admin/rute'); ?>">
+            <i class="fa fa-map"></i><span>Rutes</span>
           </a>
-          <ul class="treeview-menu">
-            <li class="active"><a href="<?php echo base_url('admin/rute'); ?>"><i class="fa fa-plus"></i>Tambah</a></li>
-            <li><a href="<?php echo base_url('admin/datarute'); ?>"><i class="fa fa-database"></i> Data</a></li>
-          </ul>
         </li>
         <li class="treeview">
           <a href="">
@@ -393,43 +385,75 @@
               <h3 class="box-title">Input masks</h3>
             </div>
             <div class="box-body">
-              <form action="<?php echo base_url('admin/proses_tambahrute'); ?>" method="post">
-                <div class="bootstrap-timepicker">
+              <form action="<?php echo base_url('admin/update_transportation'); ?>" method="post">
+                <?php 
+                  foreach($transport as $t){ 
+                  ?>
                 <div class="form-group">
-                  <label>Depart At:</label>
-
-                  <div class="input-group">
-                    <input type="text" class="form-control timepicker" name="depart">
-
-                    <div class="input-group-addon">
-                      <i class="fa fa-clock-o"></i>
-                    </div>
-                  </div>
-                </div>
+                  <label>Kode :</label>
+                  <input type="hidden" class="form-control" name="id" required="true" value="<?php echo $t->id ?>">
+                  <input type="text" class="form-control" name="kode" required="true" value="<?php echo $t->code ?>">
                 </div>
                 <div class="form-group">
-                  <label>Rute From :</label>
-                  <input type="text" class="form-control" name="rutefrom" required="true">
-                </div>
-                <div class="form-group">
-                  <label>Rute To :</label>
-                  <input type="text" class="form-control" name="ruteto" required="true">
+                  <label>Deskripsi :</label>
+                  <input type="text" class="form-control" name="deskripsi" required="true" value="<?php echo $t->description ?>">
                 </div>  
                 <div class="form-group">
-                  <label>Price :</label>
-                  <input type="text" class="form-control" name="price" required="true">
+                  <label>Jumlah Kursi :</label>
+                  <input type="text" class="form-control" name="seat_qty" required="true" value="<?php echo $t->seat_qty ?>">
                 </div>
                 <div class="box-footer">
                   <button type="submit" class="btn btn-primary">Submit</button>
                 </div>
+                <?php } ?>
               </form>
             </div>
             <!-- /.box-body -->
           </div>
           <!-- /.box -->
+
+
+
+        </div>
+        <!-- /.col (left) -->
+        <div class="col-md-8">
+          <div class="box box-primary">
+       
+            <div class="box-header">
+              <h3 class="box-title">Simple Full Width Table</h3>s
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body no-padding">
+              <table class="table">
+                <tr>
+                  <th style="width: 10px">#</th>
+                  <th>Kode</th>
+                  <th>Deskripsi</th>
+                  <th>Jumlah Kursi</th>
+                  <th>Action</th>
+            
+                </tr>
+                  <?php 
+                  $no = 1;
+                  foreach($transport as $t){ 
+                  ?>
+                <tr>
+                  <td><?php echo $no++ ?></td>
+                  <td><?php echo $t->code ?></td>
+                  <td><?php echo $t->description ?></td>
+                  <td><?php echo $t->seat_qty ?></td>
+                  <td>
+                    <div class="btn btn-danger" style="height: 26px; padding: 2px; padding-left: 10px; padding-right: 10px;"><a style="cursor: pointer; color:white ;" title="" onclick="href='<?php echo base_url(('admin/hapus_transport/'.$t->id)); ?>'">Remove</a></div>
+                  </td>
+                </tr>
+                <?php } ?>
+              </table>
+            </div>
+          </div>
         </div>
       </div>
-    <!-- /.row -->
+      <!-- /.row -->
+
     </section>
   </div>
   <!-- /.content-wrapper -->

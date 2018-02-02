@@ -29,64 +29,43 @@
 
 	<div class="content-agileits">
 		<h1 class="title">Book Here!</h1>
-		<div class="left">
+		
 			<form action="#" method="post" data-toggle="validator">
+				<div class="leftresv">
 				<div class="form-group">
-					<label for="firstname" class="control-label">First Name:</label>
-					<input type="text" class="form-control" id="firstname" placeholder="First Name" data-error="Enter Your First Name" required>
-					<div class="help-block with-errors"></div>
+					<label for="firstname" class="control-label">From :</label>
+					<input type="text" class="form-control" id="firstname" placeholder="First Name" required>
+					
 				</div>
+				</div>
+				<div class="leftresv">
 				<div class="form-group">
-					<label for="lastname" class="control-label">Last Name:</label>
-					<input type="text" class="form-control" id="lastname" placeholder="Last Name" data-error="Enter Your Last Name" required>
-					<div class="help-block with-errors"></div>
+					<label for="firstname" class="control-label">To:</label>
+					<input type="text" class="form-control" id="firstname" placeholder="First Name" required>
+			
 				</div>
+				</div>
+				<div class="leftresv">
 				<div class="form-group">
-					<label for="inputEmail" class="control-label">Email:</label>
-					<input type="email" class="form-control" id="inputEmail" placeholder="Email" data-error="This email address is invalid" required>
-					<div class="help-block with-errors"></div>
+					<label for="firstname" class="control-label">At:</label>
+					<input type="text" class="form-control" id="firstname" placeholder="First Name" required>
 				</div>
+				</div>
+				<div class="leftresv">
 				<div class="form-group">
-					<label for="Phone" class="control-label">Phone:</label>
-					<input type="text" class="form-control" id="Phone" placeholder="Phone" data-error="Enter Your Phone Number" required>
-					<div class="help-block with-errors"></div>
+					<label for="firstname" class="control-label">Qty:</label>
+					<input type="text" class="form-control" id="firstname" placeholder="First Name" required>
 				</div>
-				<div class="form-group">
-					<label for="inputPassword" class="control-label">Password:</label>
-					<div class="form-inline row">
-						<div class="form-group col-sm-6 agileits-w3layouts">
-							<input type="password" data-minlength="6" class="form-control" id="inputPassword" placeholder="Password" required>
-							<div class="help-block">Minimum of 6 characters</div>
-						</div>
-						<div class="form-group col-sm-6 w3-agile">
-							<input type="password" class="form-control" id="inputPasswordConfirm" data-match="#inputPassword" data-match-error="Whoops, these don't match"
-							    placeholder="Confirm Password" required>
-							<div class="help-block with-errors"></div>
-						</div>
-					</div>
 				</div>
-				<div class="form-group w3ls-opt">
-					<label for="Phone" class="control-label">Gender</label>
-
-					<label class="w3layouts">
-						<input type="radio" name="work" id="hire" value="male" checked>Male
-					</label>
-					<label class="w3layouts label2">
-						<input type="radio" name="work" id="work" value="female">Female
-					</label>
-				</div>
+				<div class="leftresv">
 				<div class="form-group">
 					<button type="submit" class="btn btn-lg">submit</button>
 				</div>
+				</div>
 			</form>
-		</div>
-		<div class="right"></div>
-		<div class="clear"></div>
+		
+
 	</div>
-	<p class="copyright-w3ls">© 2017 Student Registration Form. All Rights Reserved | Design by
-		<a href="https://w3layouts.com/" target="_blank">W3layouts</a>
-	</p>
-	<!-- js -->
 	<script src="gedang/ticketo/js/jquery-2.1.4.min.js"></script>
 	<!-- //js -->
 

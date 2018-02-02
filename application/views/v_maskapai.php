@@ -345,7 +345,7 @@
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
           </a>
         </li>
-        <li class="treeview active">
+         <li class="treeview">
           <a href="">
             <i class="fa fa-map"></i>
             <span>Rutes</span>
@@ -354,11 +354,11 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li class="active"><a href="<?php echo base_url('admin/rute'); ?>"><i class="fa fa-plus"></i>Tambah</a></li>
+            <li><a href="<?php echo base_url('admin/rute'); ?>"><i class="fa fa-plus"></i>Tambah</a></li>
             <li><a href="<?php echo base_url('admin/datarute'); ?>"><i class="fa fa-database"></i> Data</a></li>
           </ul>
         </li>
-        <li class="treeview">
+        <li class="treeview active">
           <a href="">
             <i class="fa fa-plane"></i>
             <span>Maskapai</span>
@@ -367,8 +367,11 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="<?php echo base_url('admin/maskapai'); ?>"><i class="fa fa-plus"></i>Tambah</a></li>
-            <li><a href="<?php echo base_url('admin/datamaskapai'); ?>"><i class="fa fa-database"></i> Data</a></li>
+            <li class="active"><a href="<?php echo base_url('admin/maskapai'); ?>"><i class="fa fa-plus"></i>Tambah</a></li>
+            <li>
+              <a href="<?php echo base_url('admin/datamaskapai'); ?>"><i class="fa fa-database"></i> Data
+              </a>
+            </li>
           </ul>
         </li>
       </ul>
@@ -393,31 +396,18 @@
               <h3 class="box-title">Input masks</h3>
             </div>
             <div class="box-body">
-              <form action="<?php echo base_url('admin/proses_tambahrute'); ?>" method="post">
-                <div class="bootstrap-timepicker">
+              <form action="<?php echo base_url('admin/proses_tambahtransport'); ?>" method="post">
                 <div class="form-group">
-                  <label>Depart At:</label>
-
-                  <div class="input-group">
-                    <input type="text" class="form-control timepicker" name="depart">
-
-                    <div class="input-group-addon">
-                      <i class="fa fa-clock-o"></i>
-                    </div>
-                  </div>
-                </div>
+                  <label>Kode :</label>
+                  <input type="text" class="form-control" name="kode" required="true">
                 </div>
                 <div class="form-group">
-                  <label>Rute From :</label>
-                  <input type="text" class="form-control" name="rutefrom" required="true">
-                </div>
-                <div class="form-group">
-                  <label>Rute To :</label>
-                  <input type="text" class="form-control" name="ruteto" required="true">
+                  <label>Deskripsi :</label>
+                  <input type="text" class="form-control" name="deskripsi" required="true">
                 </div>  
                 <div class="form-group">
-                  <label>Price :</label>
-                  <input type="text" class="form-control" name="price" required="true">
+                  <label>Jumlah Kursi :</label>
+                  <input type="text" class="form-control" name="seat_qty" required="true">
                 </div>
                 <div class="box-footer">
                   <button type="submit" class="btn btn-primary">Submit</button>
@@ -427,9 +417,14 @@
             <!-- /.box-body -->
           </div>
           <!-- /.box -->
+
+
+
         </div>
+        <!-- /.col (left) -->
       </div>
-    <!-- /.row -->
+      <!-- /.row -->
+
     </section>
   </div>
   <!-- /.content-wrapper -->

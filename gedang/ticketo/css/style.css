@@ -299,6 +299,14 @@ form-group.field {
 
 }
 
+.leftresv {
+	width: 20%;
+	float: left;
+	padding: 0.5em;
+	background: rgba(20, 20, 20, 0.5);
+
+}
+
 .right {
 	width: 50%;
 	float: left;

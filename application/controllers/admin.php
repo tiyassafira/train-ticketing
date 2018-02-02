@@ -12,21 +12,28 @@ class Admin extends CI_Controller{
 	}
 
 	function index(){
-		$this->load->view('v_admin');
+		$fullname = $this->session->userdata('name');
+		$where = array('username' => $fullname);
+		$data['user'] = $this->data_crud->cek_login('tuser',$where)->result();
+		$this->load->view('v_admin',$data);
 	}
 
 	function rute(){
+		$this->load->view('v_rute');
+	}
+
+	function datarute(){
 		$data['rute'] = $this->data_crud->tampil_datarute()->result();
-		$this->load->view('v_rute',$data);
+		$this->load->view('v_rute_data',$data);
 	}
 
 	function hapus_rute($id){
 		$where = array('id' => $id);
   		$this->data_crud->hapus_datarute($where,'rute');
-  		redirect('admin/rute');
+  		redirect('admin/datarute');
 	}
 
-	function proses_tambah(){
+	function proses_tambahrute(){
   		$depart = $this->input->post('depart');
   		$rute_from = $this->input->post('rutefrom');
   		$rute_to = $this->input->post('ruteto');
@@ -69,6 +76,63 @@ class Admin extends CI_Controller{
  		);
 
  		$this->data_crud->update_datarute($where,$data,'rute');
- 		redirect('admin/rute');
+ 		redirect('admin/datarute');
+	}
+
+	function datamaskapai(){
+		$data['transportation'] = $this->data_crud->tampil_datatransportation()->result();
+		$this->load->view('v_maskapai_data',$data);
+	}
+
+  function maskapai(){
+    $this->load->view('v_maskapai');
+  }
+
+	function hapus_transport($id){
+		$where = array('id' => $id);
+  		$this->data_crud->hapus_datatransportation($where,'transportation');
+  		redirect('admin/datamaskapai');
+	}
+
+	function proses_tambahtransport(){
+  		$kode = $this->input->post('kode');
+  		$deskripsi = $this->input->post('deskripsi');
+  		$seat_qty = $this->input->post('seat_qty');
+ 
+
+  		$data = array(
+   		'code' => $kode,
+   		'description' => $deskripsi,
+   		'seat_qty' => $seat_qty
+   		);
+
+  		$this->data_crud->input_datarute($data,'transportation');
+  		redirect('admin/maskapai');
+ 	}
+
+ 	function edit_transport($id){
+  		$where = array('id' => $id);
+  		$data['transport'] = $this->data_crud->edit_datatransportation($where,'transportation')->result();
+  		$this->load->view('v_maskapai_edit',$data);
+ 	}
+
+ 	function update_transportation(){
+ 		$id = $this->input->post('id');
+ 		$kode = $this->input->post('kode');
+ 		$deskripsi = $this->input->post('deskripsi');
+ 		$seat_qty = $this->input->post('seat_qty');
+
+ 		$data = array(
+  			'code' => $kode,
+  			'description' => $deskripsi,
+  			'seat_qty' => $seat_qty
+ 		);
+
+ 		$where = array(
+  			'id' => $id
+ 		);
+
+ 		$this->data_crud->update_datatransportation($where,$data,'transportation');
+ 		redirect('admin/maskapai');
 	}
 }

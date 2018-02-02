@@ -22,7 +22,7 @@ class Login extends CI_Controller{
 			'username' => $username,
 			'password' => md5($password)
 			);
-		$cek = $this->data_crud->cek_login("tuser", $where)->num_rows();
+		$cek = $this->data_crud->cek_login('tuser', $where)->num_rows();
 		if($cek > 0){
 			$data_session = array(
 				'nama'   => $username,
