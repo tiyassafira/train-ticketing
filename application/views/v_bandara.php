@@ -345,7 +345,7 @@
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
           </a>
         </li>
-        <li class="treeview active">
+        <li class="treeview">
           <a href="">
             <i class="fa fa-map"></i>
             <span>Rutes</span>
@@ -354,7 +354,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li class="active"><a href="<?php echo base_url('admin/rute'); ?>"><i class="fa fa-plus"></i>Tambah</a></li>
+            <li><a href="<?php echo base_url('admin/rute'); ?>"><i class="fa fa-plus"></i>Tambah</a></li>
             <li><a href="<?php echo base_url('admin/datarute'); ?>"><i class="fa fa-database"></i> Data</a></li>
           </ul>
         </li>
@@ -371,7 +371,7 @@
             <li><a href="<?php echo base_url('admin/datamaskapai'); ?>"><i class="fa fa-database"></i> Data</a></li>
           </ul>
         </li>
-        <li class="treeview">
+        <li class="treeview active">
           <a href="">
             <i class="glyphicon glyphicon-map-marker"></i>
             <span>Bandara</span>
@@ -380,7 +380,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="<?php echo base_url('admin/bandara'); ?>"><i class="fa fa-plus"></i>Tambah</a></li>
+            <li class="active"><a href="<?php echo base_url('admin/bandara'); ?>"><i class="fa fa-plus"></i>Tambah</a></li>
             <li><a href="<?php echo base_url('admin/databandara'); ?>"><i class="fa fa-database"></i> Data</a></li>
           </ul>
         </li>
@@ -406,57 +406,22 @@
               <h3 class="box-title">Input masks</h3>
             </div>
             <div class="box-body">
-              <form action="<?php echo base_url('admin/proses_tambahrute'); ?>" method="post">
-                <div class="bootstrap-timepicker">
+              <form action="<?php echo base_url('admin/proses_tambahbandara'); ?>" method="post">
                 <div class="form-group">
-                  <label>Depart At:</label>
-
-                  <div class="input-group">
-                    <input type="text" class="form-control timepicker" name="depart">
-
-                    <div class="input-group-addon">
-                      <i class="fa fa-clock-o"></i>
-                    </div>
-                  </div>
+                  <label>Kode :</label>
+                  <input type="text" class="form-control" name="kode" required="true">
                 </div>
-                </div>
-
                 <div class="form-group">
-                <label>Rute from :</label>
-                <select class="form-control select2" style="width: 100%;" name="rutefrom" >
-                  <?php foreach($bandara as $b){ ?>
-                  <option value="<?php echo $b->nama ?>"><?php echo "(".$b->kode.")"." ".$b->nama ?></option>
-                  <?php } ?>
-                </select>
-                </div>
-
+                  <label>Nama Bandara :</label>
+                  <input type="text" class="form-control" name="nama" required="true">
+                </div> 
                 <div class="form-group">
-                <label>Rute to :</label>
-                <select class="form-control select2" style="width: 100%;" name="ruteto" >
-                  <?php foreach($bandara as $b){ ?>
-                  <option value="<?php echo $b->nama ?>"><?php echo "(".$b->kode.")"." ".$b->nama ?></option>
-                  <?php } ?>
-                </select>
+                  <label>Kota :</label>
+                  <input type="text" class="form-control" name="kota" required="true">
                 </div>
-
-                <div class="form-group">
-                <label>Maskapai</label>               
-                <select class="form-control select2" style="width: 100%;" name="maskapai" >
-                  <?php foreach($maskapai as $m){ ?>
-                  <option value="<?php echo $m->id ?>"><?php echo $m->description ?></option>
-                  <?php } ?>
-                </select>
-                </div>  
-
-                <div class="form-group">
-                  <label>Price :</label>
-                  <input type="text" class="form-control" name="price" required="true">
-                </div>
-
                 <div class="box-footer">
                   <button type="submit" class="btn btn-primary">Submit</button>
                 </div>
-
               </form>
             </div>
             <!-- /.box-body -->

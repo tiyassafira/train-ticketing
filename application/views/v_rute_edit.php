@@ -373,6 +373,19 @@
             <li><a href="<?php echo base_url('admin/datamaskapai'); ?>"><i class="fa fa-database"></i> Data</a></li>
           </ul>
         </li>
+        <li class="treeview">
+          <a href="">
+            <i class="glyphicon glyphicon-map-marker"></i>
+            <span>Bandara</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="<?php echo base_url('admin/bandara'); ?>"><i class="fa fa-plus"></i>Tambah</a></li>
+            <li><a href="<?php echo base_url('admin/databandara'); ?>"><i class="fa fa-database"></i> Data</a></li>
+          </ul>
+        </li>
       </ul>
     </section>
     <!-- /.sidebar -->
@@ -432,6 +445,15 @@
                 <div class="form-group">
                   <label>Rute To :</label>
                   <input type="text" class="form-control" name="ruteto" required="true" value="<?php echo $s->rute_to ?>">
+                </div>
+                <div class="form-group">
+                <label>Maskapai</label>
+                
+                <select class="form-control select2" style="width: 100%;" name="maskapai" >
+                  <?php foreach($maskapai as $m){ ?>
+                  <option value="<?php echo $m->id ?>"><?php echo $m->description ?></option>
+                  <?php } ?>
+                </select>
                 </div>  
                 <div class="form-group">
                   <label>Price :</label>

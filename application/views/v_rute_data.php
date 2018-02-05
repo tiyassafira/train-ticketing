@@ -359,6 +359,19 @@
             <li><a href="<?php echo base_url('admin/datamaskapai'); ?>"><i class="fa fa-database"></i> Data</a></li>
           </ul>
         </li>
+        <li class="treeview">
+          <a href="">
+            <i class="glyphicon glyphicon-map-marker"></i>
+            <span>Bandara</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="<?php echo base_url('admin/bandara'); ?>"><i class="fa fa-plus"></i>Tambah</a></li>
+            <li><a href="<?php echo base_url('admin/databandara'); ?>"><i class="fa fa-database"></i> Data</a></li>
+          </ul>
+        </li>
       </ul>
     </section>
     <!-- /.sidebar -->
@@ -396,6 +409,7 @@
                   <th>Depart At</th>
                   <th>Rute From</th>
                   <th>Rute To</th>
+                  <th>Maskapai</th>
                   <th>Price</th>
                   <th>Action</th>
                 </tr>
@@ -410,6 +424,7 @@
                   <td><?php echo $s->depart_at ?></td>
                   <td><?php echo $s->rute_from ?></td>
                   <td><?php echo $s->rute_to ?></td>
+                  <td><?php echo $s->description ?></td>
                   <td><?php echo $s->price ?></td>
                   <td><a style="cursor: pointer; color:white;" title="" onclick="href='<?php echo base_url(('admin/edit_rute/'.$s->id)); ?>'"><button class="btn btn-primary" style="height: 26px; padding: 2px; padding-left: 10px; padding-right: 10px;">Edit</button></a>
                    <a style="cursor: pointer; color:white ;" title="" onclick="href='<?php echo base_url(('admin/hapus_rute/'.$s->id)); ?>'"> <button class="btn btn-danger" style="height: 26px; padding: 2px; padding-left: 10px; padding-right: 10px;">Remove</button></a>

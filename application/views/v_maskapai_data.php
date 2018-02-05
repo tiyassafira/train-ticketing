@@ -359,6 +359,19 @@
             <li  class="active"><a href="<?php echo base_url('admin/datamaskapai'); ?>"><i class="fa fa-database"></i> Data</a></li>
           </ul>
         </li>
+        <li class="treeview">
+          <a href="">
+            <i class="glyphicon glyphicon-map-marker"></i>
+            <span>Bandara</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="<?php echo base_url('admin/bandara'); ?>"><i class="fa fa-plus"></i>Tambah</a></li>
+            <li><a href="<?php echo base_url('admin/databandara'); ?>"><i class="fa fa-database"></i> Data</a></li>
+          </ul>
+        </li>
       </ul>
     </section>
     <!-- /.sidebar -->
@@ -387,7 +400,6 @@
             <div class="box-header">
               <h3 class="box-title"><a href="<?php echo base_url("admin/maskapai"); ?>"><button class="btn btn-primary">Tambah</button></a></h3>
             </div>
-            <!-- /.box-header -->
             <div class="box-body">
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
@@ -417,7 +429,7 @@
                 </tbody>
                 <tfoot>
                 <tr>
-                  <<th style="width: 10px">#</th>
+                  <th style="width: 10px">#</th>
                   <th>Kode</th>
                   <th>Deskripsi</th>
                   <th>Jumlah Kursi</th>
