@@ -12,13 +12,22 @@
 			<meta name="viewport" content="width=device-width, initial-scale = 1.0, maximum-scale=1.0, user-scalable=no"/>
 	<title>Euro Travel</title>
 
-	<link rel="stylesheet" href="<?php echo base_url(); ?>gedang/boooking/assets/css/bootstrap.min.css">
-	<link rel="stylesheet" href="<?php echo base_url(); ?>gedang/boooking/assets/css/ionicons.min.css">
-	<link rel="stylesheet" href="<?php echo base_url(); ?>gedang/boooking/assets/css/owl.carousel.css">
-	<link rel="stylesheet" href="<?php echo base_url(); ?>gedang/boooking/assets/css/owl.theme.css">
-	<link rel="stylesheet" href="<?php echo base_url(); ?>gedang/boooking/assets/css/flexslider.css" type="text/css">
-    <link rel="stylesheet" href="<?php echo base_url(); ?>gedang/boooking/assets/css/main.css">
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="assets/css/ionicons.min.css">
+	<link rel="stylesheet" href="assets/css/owl.carousel.css">
+	<link rel="stylesheet" href="assets/css/owl.theme.css">
+	<link rel="stylesheet" href="assets/css/flexslider.css" type="text/css">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" type="text/css" href="assets/DateTimePicker.css" />
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+			<!--[if lt IE 9]>
+				<script src="assets/js/html5shiv.js"></script>
+				<script src="assets/js/respond.js"></script>
+			<![endif]-->
 
+			<!--[if IE 8]>
+		    	<script src="assets/js/selectivizr.js"></script>
+		    <![endif]-->
 </head>
 <body>
 	<nav class="navbar navbar-default navbar-fixed-top">
@@ -69,10 +78,11 @@
 
 			<div class="col-md-3 col-sm-6">
 				<div class="input-group">
-					<input type="text" class="form-control border-radius border-right" placeholder="Arrival"/>
+					<input type="text" data-field="datetime" class="form-control border-radius border-right" placeholder="Arrival"/>
 					<span class="input-group-addon border-radius custom-addon">
 						<i class="ion-ios-calendar"></i>
 					</span>
+ 				<div id="dtBox"></div>
 				</div>
 			</div>
 
@@ -91,6 +101,7 @@
 				</div>
 			</div>
 		</div>
+
 	</section>
 			
 	<footer>
@@ -115,12 +126,27 @@
 		</div>		
 	</footer>
 
-	<script src="<?php echo base_url(); ?>gedang/boooking/assets/js/jquery-1.11.2.min.js"></script>
-    <script src="<?php echo base_url(); ?>gedang/boooking/assets/js/bootstrap.min.js"></script>
-    <script src="<?php echo base_url(); ?>gedang/boooking/assets/js/owl.carousel.min.js"></script>
-    <script src="<?php echo base_url(); ?>gedang/boooking/assets/js/contact.js"></script>
-    <script src="<?php echo base_url(); ?>gedang/boooking/assets/js/jquery.flexslider.js"></script>
-	<script src="<?php echo base_url(); ?>gedang/boooking/assets/js/script.js"></script>
+
+	<script src="assets/js/jquery-1.11.2.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/owl.carousel.min.js"></script>
+    <script src="assets/js/contact.js"></script>
+    <script src="assets/js/jquery.flexslider.js"></script>
+	<script src="assets/js/script.js"></script>
+	<script src="assets/js/script.js"></script>
+	<script type="text/javascript" src="assets/DateTimePicker.js"></script>
+	<script type="text/javascript">
+
+		$(document).ready(function()
+ {
+   
+     $("#dtBox").DateTimePicker();
+   
+ });
+
+	
+</script>
+
 
 </body>
 </html>

@@ -35,8 +35,14 @@
  			return $this->db->get('airport');
  		}
 
- 		function tampil_maskapai($table,$where){
-			return $this->db->get_where($table, $where);
+ 		function tampil_rute($from,$to){
+			$this->db->select("rute.id,rute.depart_at,rute.rute_from,rute.rute_to,rute.price,transportation.description");
+  			$this->db->from('rute');
+  			$this->db->join('transportation', 'transportation.id = rute.transportationid');
+  			$this->db->where('rute.rute_from', $from);
+			$this->db->where('rute.rute_to', $to);
+  			$query = $this->db->get();
+  			return $query->result();
 		}
 
 		function join_rutemaskapai(){
