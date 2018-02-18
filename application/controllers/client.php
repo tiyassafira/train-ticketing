@@ -1,7 +1,5 @@
 <?php 
-/**
- * 
- */
+
  class Client extends CI_Controller
  {
  	
@@ -16,19 +14,49 @@
  		$this->load->view('v_client',$data);
  	}
 
- 	function carirute(){
- 		$from = $this->input->post('from');
- 		$to = $this->input->post('to');
- 		// $depart = $this->input->post('depart');
- 		// $seat_qty = $this->input->post('seat_qty');
- 		// $data['data2'] = array();
+ 	public function carirute(){
+ 		$from = $this->input->get('from');
+ 		$to = $this->input->get('to');
+ 		$date = $this->input->get('date');
+
 		$query = $this->data_crud->tampil_rute($from, $to);
-		$data['rute'] = null;
-		if($query){
-			$data['rute'] = $query;
-		}
+		$data['rute'] = $query;
+		$data['date'] = $date;
 		$this->load->view('v_client_rutes',$data);
-		
  	}
+
+ 	public function reservation($id){
+ 		$where =  $id;
+ 		$query = $this->data_crud->join_clientreserve($where);
+  		$data['reserve'] = null;
+  		if($query){
+   			$data['reserve'] =  $query;
+  		}
+ 		$this->load->view('v_client_reserv',$data);
+ 	}
+
+ 	function pesan(){
+ 		$rute_id = $this->input->post('rute_id');
+ 		$namapemesan = $this->input->post('namapemesan');
+ 		$alamatpemesan = $this->input->post('alamatpemesan');
+    	$emailpemesan = $this->input->post('emailpemesan');
+ 		$notelpemesan = $this->input->post('notelpemesan');
+ 		$jenkelpenumpang = $this->input->post('jenkelpenumpang');
+ 		$namapenumpang = $this->input->post('namapenumpang');
+
+ 		$data = array(
+        	'rute_id' => $rute_id,
+  			'namapemesan' => $namapemesan,
+  			'alamatpemesan' => $alamatpemesan,
+  			'emailpemesan' => $emailpemesan,
+  			'notelpemesan' => $notelpemesan,
+  			'jenkelpenumpang' => $jenkelpenumpang,
+  			'namapenumpang' => $namapenumpang,
+  			'status' => 'Menunggu Pembayaran'
+ 		);
+
+ 		$this->data_crud->input_datareservation($data,'reservation');
+ 		redirect('admin/datarute');
+	}
  } 
  ?>

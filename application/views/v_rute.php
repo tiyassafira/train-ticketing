@@ -407,6 +407,17 @@
             </div>
             <div class="box-body">
               <form action="<?php echo base_url('admin/proses_tambahrute'); ?>" method="post">
+                <div class="form-group">
+                <label>Date:</label>
+
+                <div class="input-group date">
+                  <div class="input-group-addon">
+                    <i class="fa fa-calendar"></i>
+                  </div>
+                  <input type="text" class="form-control pull-right" id="datepicker" name="date">
+                </div>
+                <!-- /.input group -->
+              </div>
                 <div class="bootstrap-timepicker">
                 <div class="form-group">
                   <label>Depart At:</label>

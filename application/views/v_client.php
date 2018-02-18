@@ -63,7 +63,7 @@
 		</p>
 		<div class="row">
 			
-				<form action="<?php echo base_url('client/carirute')?>"  role="form" class="form-dropdown" method="post">
+				<form action="<?php echo base_url('client/carirute')?>"  role="form" class="form-dropdown" method="get">
 					<div class="col-md-2 col-sm-6">
 					<div class="form-group">	
 						<label>From : </label>				
@@ -90,7 +90,7 @@
 					<div class="form-group">
 						<label>At : </label>
 					<div class="input-group">
-						<input type="text" data-field="date" class="form-control border-radius border-right" placeholder="Departure" name="depart"/>
+						<input type="text" data-field="date" class="form-control border-radius border-right" placeholder="Departure" name="date"/>
 						<span class="input-group-addon border-radius custom-addon">
 							<i class="ion-ios-calendar"></i>
 						</span>

@@ -41,6 +41,7 @@ class Admin extends CI_Controller{
 	}
 
 	function proses_tambahrute(){
+      $date = $this->input->post('date');
   		$depart = $this->input->post('depart');
   		$rute_from = $this->input->post('rutefrom');
   		$rute_to = $this->input->post('ruteto');
@@ -48,6 +49,7 @@ class Admin extends CI_Controller{
       $maskapai = $this->input->post('maskapai');
  
   		$data = array(
+      'date' => $date,
    		'depart_at' => $depart,
    		'rute_from' => $rute_from,
    		'rute_to' => $rute_to,
@@ -83,6 +85,7 @@ class Admin extends CI_Controller{
 
  	function update_rute(){
  		$id = $this->input->post('id');
+    $date = $this->input->post('date');
  		$depart = $this->input->post('depart');
  		$rute_from = $this->input->post('rutefrom');
  		$rute_to = $this->input->post('ruteto');
@@ -90,6 +93,7 @@ class Admin extends CI_Controller{
     $maskapai = $this->input->post('maskapai');
 
  		$data = array(
+        'date' => $date,
   			'depart_at' => $depart,
   			'rute_from' => $rute_from,
   			'rute_to' => $rute_to,

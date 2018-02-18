@@ -46,14 +46,27 @@
 		}
 
 		function join_rutemaskapai(){
-			$this->db->select("rute.id,rute.depart_at,rute.rute_from,rute.rute_to,rute.price,transportation.description");
+			$this->db->select("rute.id,rute.date,rute.depart_at,rute.rute_from,rute.rute_to,rute.price,transportation.description");
   			$this->db->from('rute');
   			$this->db->join('transportation', 'transportation.id = rute.transportationid');
   			$query = $this->db->get();
   			return $query->result();
 		}
 
+		function join_clientreserve($where){
+			$this->db->select("rute.id,rute.date,rute.depart_at,rute.rute_from,rute.rute_to,rute.price,transportation.description,transportation.code");
+  			$this->db->from('rute');
+  			$this->db->join('transportation', 'transportation.id = rute.transportationid');
+  			$this->db->where('rute.id', $where);
+  			$query = $this->db->get();
+  			return $query->result();
+		}
+
  		function input_datatransport($data,$table){
+  			$this->db->insert($table,$data);
+ 		}
+
+ 		function input_datareservation($data,$table){
   			$this->db->insert($table,$data);
  		}
 

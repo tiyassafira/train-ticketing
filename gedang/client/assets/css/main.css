@@ -229,6 +229,20 @@ ul.nav.navbar-nav.navbar-right{
 	border-color: #53B1DE;
 	color: #fff;
 }
+.custom-tombol{
+	background: #60c9eb;
+	color: #fff;
+	width: 100%;
+	text-align: center;
+	padding: 10px;
+	font-size: 16px;
+	transition: all .4s ease-in-out;
+}
+.custom-tombol:hover{
+	background: #53B1DE;
+	border-color: #53B1DE;
+	color: #fff;
+}
 .tour .input-group{
 	margin-bottom: 22px;
 }
@@ -339,10 +353,20 @@ ul.nav.navbar-nav.navbar-right{
     top: 0;
     bottom: 0;
 }
+
+input.readonly{
+	background-color: white;
+	cursor: none;
+}
 .add-srvc-heading{
 	color: #313131;
 	font-size: 16px;
 }
+
+.amba{
+	padding-top: 100px;
+}
+
 .add-srvc-detail{
 	display: table-cell;
     vertical-align: middle;
