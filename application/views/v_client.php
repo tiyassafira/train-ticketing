@@ -69,23 +69,21 @@
 						<label>From : </label>				
 						<select class="form-control border-radius" id="sel1" name="from">
 							<?php foreach($bandara as $b){ ?>
-							<option><?php echo $b->nama ?></option>
+							<option value="<?php echo $b->nama ?>"><?php echo $b->kode." - ".$b->nama.", ".$b->kota ?></option>
 							<?php } ?>
 						</select>		
 					</div>
-				</div>
-				
+				</div>				
 				<div class="col-md-2 col-sm-6">
 					<div class="form-group">
 						<label>To : </label>					
 						<select class="form-control border-radius" id="sel1" name="to">
 							<?php foreach($bandara as $b){ ?>
-							<option><?php echo $b->nama ?></option>
+							<option value="<?php echo $b->nama ?>"><?php echo $b->kode." - ".$b->nama.", ".$b->kota ?></option>
 							<?php } ?>
 						</select>		
 					</div>
 				</div>
-
 				<div class="col-md-2 col-sm-6">
 					<div class="form-group">
 						<label>At : </label>
@@ -98,7 +96,6 @@
 					</div>
 					</div>
 				</div>
-
 				<div class="col-md-2 col-sm-6">
 					<div class="form-group">
 						<label>Quantity : </label>
@@ -110,7 +107,6 @@
 					</div>
 					</div>
 				</div>
-
 				<div class="col-md-2 col-sm-6">
 					<div class="form-group">
 					<button type="submit" name="" class="btn btn-default border-radius custom-button">Cari</button>
@@ -119,7 +115,6 @@
 				</form>
 			</div>
 	</section>
-
 	<script src="<?php echo base_url() ?>gedang/client/assets/js/jquery-1.11.2.min.js"></script>
     <script src="<?php echo base_url() ?>gedang/client/assets/js/bootstrap.min.js"></script>
     <script src="<?php echo base_url() ?>gedang/client/assets/js/owl.carousel.min.js"></script>
@@ -133,7 +128,9 @@
 		$(document).ready(function()
  {
    
-     $("#dtBox").DateTimePicker();
+     $("#dtBox").DateTimePicker(
+
+     	);
    
  });
 

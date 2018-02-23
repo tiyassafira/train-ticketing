@@ -61,6 +61,7 @@
 			Find a Tour
 		</h2>
 		<div class="table-responsive">
+<?php if($rute){ ?>
 <center><table class="table table-hover"  >
 <thead>
 		<th >#</th>
@@ -76,14 +77,19 @@
 	<td style="padding-top: 27px; padding-bottom: 27px;"><?php echo $no++; ?></td>
 	<td style="padding-top: 27px; padding-bottom: 27px;"><?php echo $r->rute_from; ?></td>
 	<td style="padding-top: 27px; padding-bottom: 27px;"><?php echo $r->rute_to; ?></td>
-	<td style="padding-top: 27px; padding-bottom: 27px;"><?php echo $date." ".$r->depart_at; ?></td>
+	<td style="padding-top: 27px; padding-bottom: 27px;"><?php echo $r->depart_at; ?></td>
 	<td style="padding-top: 27px; padding-bottom: 27px;"><?php echo $r->description; ?></td>
-	<td style="padding-top: 27px; padding-bottom: 27px;"><?php echo $r->price; ?></td>
+	<td style="padding-top: 27px; padding-bottom: 27px;"><?php echo "Rp. ".$r->price; ?></td>
 	<td style="padding-top: 15px; padding-bottom: 15px;"><a style="cursor: pointer; color:white;" title="" onclick="href='<?php echo base_url('client/reservation/'.$r->id); ?>'"><button type="submit" name="" class="btn btn-default border-radius custom-tombol">Book</button></a></td>
 </tr>
 <?php } ?>
 </table>
 </center>
+<?php }else{ ?>
+	<div>
+		Jadwal tidak ada
+	</div>
+<?php } ?>
 </div>
 	</section>
 

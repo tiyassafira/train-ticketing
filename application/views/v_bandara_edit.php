@@ -3,22 +3,34 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 2 | Data Tables</title>
+  <title>AdminLTE 2 | Advanced form elements</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
-  <link rel="stylesheet" href="<?php echo base_url(); ?>gedang/admin/bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="<?php echo base_url('gedang/admin/bower_components/bootstrap/dist/css/bootstrap.min.css'); ?>">
+  <link rel="stylesheet" href="<?php echo base_url('gedang/admin/bower_components/bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css'); ?>">
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="<?php echo base_url(); ?>gedang/admin/bower_components/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="<?php echo base_url('gedang/admin/bower_components/font-awesome/css/font-awesome.min.css'); ?>">
   <!-- Ionicons -->
-  <link rel="stylesheet" href="<?php echo base_url(); ?>gedang/admin/bower_components/Ionicons/css/ionicons.min.css">
-  <!-- DataTables -->
-  <link rel="stylesheet" href="<?php echo base_url(); ?>gedang/admin/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
+  <link rel="stylesheet" href="<?php echo base_url('gedang/admin/bower_components/Ionicons/css/ionicons.min.css'); ?>">
+  <!-- daterange picker -->
+  <link rel="stylesheet" href="<?php echo base_url('gedang/admin/bower_components/bootstrap-daterangepicker/daterangepicker.css'); ?>">
+  <!-- bootstrap datepicker -->
+  <link rel="stylesheet" href="<?php echo base_url('gedang/admin/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css'); ?>">
+  <link rel="stylesheet" href="<?php echo base_url('gedang/admin/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.css'); ?>">
+  <!-- iCheck for checkboxes and radio inputs -->
+  <link rel="stylesheet" href="<?php echo base_url('gedang/admin/plugins/iCheck/all.css'); ?>">
+  <!-- Bootstrap Color Picker -->
+  <link rel="stylesheet" href="<?php echo base_url('gedang/admin/bower_components/bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min.css'); ?>">
+  <!-- Bootstrap time Picker -->
+  <link rel="stylesheet" href="<?php echo base_url('gedang/admin/plugins/timepicker/bootstrap-timepicker.min.css'); ?>">
+  <!-- Select2 -->
+  <link rel="stylesheet" href="<?php echo base_url('gedang/admin/bower_components/select2/dist/css/select2.min.css'); ?>">
   <!-- Theme style -->
-  <link rel="stylesheet" href="<?php echo base_url(); ?>gedang/admin/dist/css/AdminLTE.min.css">
+  <link rel="stylesheet" href="<?php echo base_url('gedang/admin/dist/css/AdminLTE.min.css'); ?>">
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
-  <link rel="stylesheet" href="<?php echo base_url(); ?>gedang/admin/dist/css/skins/_all-skins.min.css">
+  <link rel="stylesheet" href="<?php echo base_url('gedang/admin/dist/css/skins/_all-skins.min.css'); ?>">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -32,15 +44,15 @@
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
-<div class="wrapper">
+<div>
 
   <header class="main-header">
     <!-- Logo -->
     <a href="../../index2.html" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>A</b></span>
+      <span class="logo-mini"><b>A</b>LT</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Admin</b></span>
+      <span class="logo-lg"><b>Admin</b>LTE</span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
@@ -68,7 +80,7 @@
                   <li><!-- start message -->
                     <a href="#">
                       <div class="pull-left">
-                        <img src="../../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                        <img src="<?php echo base_url('gedang/admin/dist/img/user2-160x160.jpg'); ?>" class="img-circle" alt="User Image">
                       </div>
                       <h4>
                         Support Team
@@ -81,7 +93,7 @@
                   <li>
                     <a href="#">
                       <div class="pull-left">
-                        <img src="../../dist/img/user3-128x128.jpg" class="img-circle" alt="User Image">
+                        <img src="<?php echo base_url('gedang/admin/dist/img/user3-128x128.jpg'); ?>" class="img-circle" alt="User Image">
                       </div>
                       <h4>
                         AdminLTE Design Team
@@ -93,7 +105,7 @@
                   <li>
                     <a href="#">
                       <div class="pull-left">
-                        <img src="../../dist/img/user4-128x128.jpg" class="img-circle" alt="User Image">
+                        <img src="<?php echo base_url('gedang/admin/dist/img/user4-128x128.jpg'); ?>" class="img-circle" alt="User Image">
                       </div>
                       <h4>
                         Developers
@@ -105,7 +117,7 @@
                   <li>
                     <a href="#">
                       <div class="pull-left">
-                        <img src="../../dist/img/user3-128x128.jpg" class="img-circle" alt="User Image">
+                        <img src="<?php echo base_url('gedang/admin/dist/img/user3-128x128.jpg'); ?>" class="img-circle" alt="User Image">
                       </div>
                       <h4>
                         Sales Department
@@ -117,7 +129,7 @@
                   <li>
                     <a href="#">
                       <div class="pull-left">
-                        <img src="../../dist/img/user4-128x128.jpg" class="img-circle" alt="User Image">
+                        <img src="<?php echo base_url('gedang/admin/dist/img/user4-128x128.jpg'); ?>" class="img-circle" alt="User Image">
                       </div>
                       <h4>
                         Reviewers
@@ -255,16 +267,16 @@
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="../../dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-              <span class="hidden-xs">Alexander Pierce</span>
+              <img src="<?php echo base_url('gedang/admin/dist/img/user2-160x160.jpg'); ?>" class="user-image" alt="User Image">
+              <span class="hidden-xs"><?php echo $this->session->userdata("nama"); ?></span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
               <li class="user-header">
-                <img src="../../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                <img src="<?php echo base_url('gedang/admin/dist/img/user2-160x160.jpg'); ?>" class="img-circle" alt="User Image">
 
                 <p>
-                  Alexander Pierce - Web Developer
+                  <?php echo $this->session->userdata("nama"); ?>
                   <small>Member since Nov. 2012</small>
                 </p>
               </li>
@@ -289,7 +301,7 @@
                   <a href="#" class="btn btn-default btn-flat">Profile</a>
                 </div>
                 <div class="pull-right">
-                  <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                  <a href="<?php echo base_url('login/logout'); ?>" class="btn btn-default btn-flat">Sign out</a>
                 </div>
               </li>
             </ul>
@@ -303,7 +315,7 @@
     </nav>
   </header>
   <!-- Left side column. contains the logo and sidebar -->
-<aside class="main-sidebar">
+  <aside class="main-sidebar">
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
       <!-- Sidebar user panel -->
@@ -368,8 +380,8 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="<?php echo base_url('admin/bandara'); ?>"><i class="fa fa-plus"></i>Tambah</a></li>
-            <li class="active"><a href="<?php echo base_url('admin/databandara'); ?>"><i class="fa fa-database"></i> Data</a></li>
+            <li class="active"><a href="<?php echo base_url('admin/bandara'); ?>"><i class="fa fa-plus"></i>Tambah</a></li>
+            <li><a href="<?php echo base_url('admin/databandara'); ?>"><i class="fa fa-database"></i> Data</a></li>
           </ul>
         </li>
       </ul>
@@ -382,63 +394,46 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Data Tables
-        <small>advanced tables</small>
+        Route
       </h1>
-      <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="#">Tables</a></li>
-        <li class="active">Data tables</li>
-      </ol>
     </section>
-
-    <!-- Main content -->
     <section class="content">
       <div class="row">
-        <div class="col-xs-12">
-          <div class="box">
+        <div class="col-md-4">
+
+          <div class="box box-primary">
             <div class="box-header">
-              <h3 class="box-title"><a href="<?php echo base_url("admin/rute"); ?>"><button class="btn btn-primary">Tambah</button></a></h3>
+              <h3 class="box-title">Input masks</h3>
             </div>
-            <!-- /.box-header -->
             <div class="box-body">
-              <table id="example1" class="table table-bordered table-striped">
-                <thead>
-                <tr>
-                  <th style="width: 10px">#</th>
-                  <th>Kode</th>
-                  <th>Nama Bandara</th>
-                  <th>Kota</th>
-                  <th>Action</th>
-                </tr>
-                </thead>
-                <tbody>
-                   <?php 
-                  $no = 1;
-                  foreach($bandara as $b){ 
-                  ?>
-                <tr>
-                  <td><?php echo $no++ ?></td>
-                  <td><?php echo $b->kode ?></td>
-                  <td><?php echo $b->nama ?></td>
-                  <td><?php echo $b->kota ?></td>
-                  <td><a style="cursor: pointer; color:white;" title="" onclick="href='<?php echo base_url(('admin/edit_bandara/'.$b->id)); ?>'"><button class="btn btn-primary" style="height: 26px; padding: 2px; padding-left: 10px; padding-right: 10px;">Edit</button></a>
-                   <a style="cursor: pointer; color:white ;" title="" onclick="href='<?php echo base_url(('admin/hapus_rute/'.$b->id)); ?>'"> <button class="btn btn-danger" style="height: 26px; padding: 2px; padding-left: 10px; padding-right: 10px;">Remove</button></a>
-                  </td>
-                </tr>
-                <?php } ?>
-                </tbody>
-              </table>
+              <?php foreach($bandara as $b) { ?>
+              <form action="<?php echo base_url('admin/update_bandara'); ?>" method="post">
+                <div class="form-group">
+                  <label>Kode :</label>
+                  <input type="hidden" name="id" value="<?php echo $b->id ?>">
+                  <input type="text" class="form-control" name="kode" required="true" value="<?php echo $b->kode ?>">
+                </div>
+                <div class="form-group">
+                  <label>Nama Bandara :</label>
+                  <input type="text" class="form-control" name="nama" required="true" value="<?php echo $b->nama ?>">
+                </div> 
+                <div class="form-group">
+                  <label>Kota :</label>
+                  <input type="text" class="form-control" name="kota" required="true" value="<?php echo $b->kota ?>">
+                </div>
+                <div class="box-footer">
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+              </form>
+              <?php } ?>
             </div>
             <!-- /.box-body -->
           </div>
           <!-- /.box -->
         </div>
-        <!-- /.col -->
       </div>
-      <!-- /.row -->
+    <!-- /.row -->
     </section>
-    <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
   <footer class="main-footer">
@@ -453,31 +448,113 @@
 <!-- ./wrapper -->
 
 <!-- jQuery 3 -->
-<script src="<?php echo base_url(); ?>gedang/admin/bower_components/jquery/dist/jquery.min.js"></script>
+<script src="<?php echo base_url('gedang/admin/bower_components/jquery/dist/jquery.min.js'); ?>"></script>
+<script src="<?php echo base_url('gedang/admin/bower_components/bootstrap-datetimepicker/src/js/bootstrap-datetimepicker.js'); ?>"></script>
+<script src="<?php echo base_url('gedang/admin/bower_components/jquery/dist/jquery.js'); ?>"></script>
+<script src="<?php echo base_url('gedang/admin/bower_components/bootstrap/js/collapse.js'); ?>"></script>
+<script src="<?php echo base_url('gedang/admin/bower_components/bootstrap/js/transition.js'); ?>"></script>
 <!-- Bootstrap 3.3.7 -->
-<script src="<?php echo base_url(); ?>gedang/admin/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-<!-- DataTables -->
-<script src="<?php echo base_url(); ?>gedang/admin/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
-<script src="<?php echo base_url(); ?>gedang/admin/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+<script src="<?php echo base_url('gedang/admin/bower_components/bootstrap/dist/js/bootstrap.min.js'); ?>"></script>
+<!-- Select2 -->
+<script src="<?php echo base_url('gedang/admin/bower_components/select2/dist/js/select2.full.min.js'); ?>"></script>
+<!-- InputMask -->
+<script src="<?php echo base_url('gedang/admin/plugins/input-mask/jquery.inputmask.js'); ?>"></script>
+<script src="<?php echo base_url('gedang/admin/plugins/input-mask/jquery.inputmask.date.extensions.js'); ?>"></script>
+<script src="<?php echo base_url('gedang/admin/plugins/input-mask/jquery.inputmask.extensions.js'); ?>"></script>
+<!-- date-range-picker -->
+<script src="<?php echo base_url('gedang/admin/bower_components/moment/min/moment.min.js'); ?>"></script>
+<script src="<?php echo base_url('gedang/admin/bower_components/moment/src/moment.js'); ?>"></script>
+<script src="<?php echo base_url('gedang/admin/bower_components/bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js'); ?>"></script>
+<script src="<?php echo base_url('gedang/admin/bower_components/bootstrap-daterangepicker/daterangepicker.js'); ?>"></script>
+<!-- bootstrap datepicker -->
+<script src="<?php echo base_url('gedang/admin/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js'); ?>"></script>
+<!-- bootstrap color picker -->
+<script src="<?php echo base_url('gedang/admin/bower_components/bootstrap-colorpicker/dist/js/bootstrap-colorpicker.min.js'); ?>"></script>
+<!-- bootstrap time picker -->
+<script src="<?php echo base_url('gedang/admin/plugins/timepicker/bootstrap-timepicker.min.js'); ?>"></script>
 <!-- SlimScroll -->
-<script src="<?php echo base_url(); ?>gedang/admin/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+<script src="<?php echo base_url('gedang/admin/bower_components/jquery-slimscroll/jquery.slimscroll.min.js'); ?>"></script>
+<!-- iCheck 1.0.1 -->
+<script src="<?php echo base_url('gedang/admin/plugins/iCheck/icheck.min.js'); ?>"></script>
 <!-- FastClick -->
-<script src="<?php echo base_url(); ?>gedang/admin/bower_components/fastclick/lib/fastclick.js"></script>
+<script src="<?php echo base_url('gedang/admin/bower_components/fastclick/lib/fastclick.js'); ?>"></script>
 <!-- AdminLTE App -->
-<script src="<?php echo base_url(); ?>gedang/admin/dist/js/adminlte.min.js"></script>
+<script src="<?php echo base_url('gedang/admin/dist/js/adminlte.min.js'); ?>"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="<?php echo base_url(); ?>gedang/admin/dist/js/demo.js"></script>
-<!-- page script -->
+<script src="<?php echo base_url('gedang/admin/dist/js/demo.js'); ?>"></script>
+<!-- Page script -->
 <script>
   $(function () {
-    $('#example1').DataTable()
-    $('#example2').DataTable({
-      'paging'      : true,
-      'lengthChange': false,
-      'searching'   : false,
-      'ordering'    : true,
-      'info'        : true,
-      'autoWidth'   : false
+    //Initialize Select2 Elements
+    $('.select2').select2()
+
+    //Datemask dd/mm/yyyy
+    $('#datemask').inputmask('dd/mm/yyyy', { 'placeholder': 'dd/mm/yyyy' })
+    //Datemask2 mm/dd/yyyy
+    $('#datemask2').inputmask('mm/dd/yyyy', { 'placeholder': 'mm/dd/yyyy' })
+    //Money Euro
+    $('[data-mask]').inputmask()
+
+    //Date range picker
+    $('#reservation').daterangepicker()
+    //Date range picker with time picker
+    $('#reservationtime').daterangepicker({ timePicker: true, timePickerIncrement: 30, format: 'MM/DD/YYYY h:mm A' })
+    //Date range as a button
+    $('#daterange-btn').daterangepicker(
+      {
+        ranges   : {
+          'Today'       : [moment(), moment()],
+          'Yesterday'   : [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+          'Last 7 Days' : [moment().subtract(6, 'days'), moment()],
+          'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+          'This Month'  : [moment().startOf('month'), moment().endOf('month')],
+          'Last Month'  : [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+        },
+        startDate: moment().subtract(29, 'days'),
+        endDate  : moment()
+      },
+      function (start, end) {
+        $('#daterange-btn span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'))
+      }
+    )
+
+    //Date picker
+    $('#datepicker').datepicker({
+      autoclose: true,
+       format: 'yyyy/mm/dd'
+    })
+
+    //iCheck for checkbox and radio inputs
+    $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
+      checkboxClass: 'icheckbox_minimal-blue',
+      radioClass   : 'iradio_minimal-blue'
+    })
+    //Red color scheme for iCheck
+    $('input[type="checkbox"].minimal-red, input[type="radio"].minimal-red').iCheck({
+      checkboxClass: 'icheckbox_minimal-red',
+      radioClass   : 'iradio_minimal-red'
+    })
+    //Flat red color scheme for iCheck
+    $('input[type="checkbox"].flat-red, input[type="radio"].flat-red').iCheck({
+      checkboxClass: 'icheckbox_flat-green',
+      radioClass   : 'iradio_flat-green'
+    })
+
+    //Colorpicker
+    $('.my-colorpicker1').colorpicker()
+    //color picker with addon
+    $('.my-colorpicker2').colorpicker()
+
+    //Timepicker
+    $('.timepicker').timepicker({
+      showInputs: false,
+      minuteStep: 1,
+                // template: 'modal',
+                // appendWidgetTo: 'body',
+                showSeconds: true,
+                showMeridian: false,
+                defaultTime: false
+                // explicitMode : true
     })
   })
 </script>

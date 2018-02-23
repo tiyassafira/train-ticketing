@@ -46,7 +46,7 @@ $.DateTimePicker = $.DateTimePicker || {
 		monthYearSeparator: " ",
 	
 		dateTimeFormat: "dd-MM-yyyy HH:mm",
-		dateFormat: "dd-MM-yyyy",
+		dateFormat: "yyyy-MM-dd",
 		timeFormat: "HH:mm",
 	
 		maxDate: null,

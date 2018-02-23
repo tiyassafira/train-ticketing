@@ -35,12 +35,13 @@
  			return $this->db->get('airport');
  		}
 
- 		function tampil_rute($from,$to){
+ 		function tampil_rute($from,$to,$date){
 			$this->db->select("rute.id,rute.depart_at,rute.rute_from,rute.rute_to,rute.price,transportation.description");
   			$this->db->from('rute');
   			$this->db->join('transportation', 'transportation.id = rute.transportationid');
   			$this->db->where('rute.rute_from', $from);
 			$this->db->where('rute.rute_to', $to);
+			$this->db->where('rute.date', $date);
   			$query = $this->db->get();
   			return $query->result();
 		}
@@ -87,6 +88,19 @@
   			$this->db->where($where);
   			$this->db->update($table,$data);
  		}
+
+ 		function seat($id){
+ 			$this->db->select('transportation.seat_qty');
+ 			$this->db->from('rute,transportation');
+ 			$this->db->where('rute.transportationid = transportation.id');
+ 			$this->db->where('rute.id', $id);
+ 			return $this->db->get();
+ 		}
  
+ 		function filterseat($id){
+ 			$this->db->select('seat');
+ 			$this->db->where('reservation.rute_id',$id);
+ 			return $this->db->get('reservation');
+ 		}
  	} 
 ?>

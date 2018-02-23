@@ -564,7 +564,7 @@
     //Date picker
     $('#datepicker').datepicker({
       autoclose: true,
-       format: 'yyyy/mm/dd'
+       format: 'yyyy-mm-dd'
     })
 
     //iCheck for checkbox and radio inputs

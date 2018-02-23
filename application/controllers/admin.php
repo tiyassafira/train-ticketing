@@ -151,6 +151,12 @@ class Admin extends CI_Controller{
   		$this->load->view('v_maskapai_edit',$data);
  	}
 
+  function edit_bandara($id){
+      $where = array('id' => $id);
+      $data['bandara'] = $this->data_crud->edit_datatransportation($where,'airport')->result();
+      $this->load->view('v_bandara_edit',$data);
+  }
+
  	function update_transportation(){
  		$id = $this->input->post('id');
  		$kode = $this->input->post('kode');
@@ -173,5 +179,25 @@ class Admin extends CI_Controller{
 
   function bandara(){
     $this->load->view('v_bandara');
+  }
+
+  function update_bandara(){
+    $id = $this->input->post('id');
+    $kode = $this->input->post('kode');
+    $nama = $this->input->post('nama');
+    $kota = $this->input->post('kota');
+
+    $data = array(
+        'kode' => $kode,
+        'nama' => $nama,
+        'kota' => $kota
+    );
+
+    $where = array(
+        'id' => $id
+    );
+
+    $this->data_crud->update_datarute($where,$data,'airport');
+    redirect('admin/databandara');
   }
 }

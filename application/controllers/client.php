@@ -19,15 +19,16 @@
  		$to = $this->input->get('to');
  		$date = $this->input->get('date');
 
-		$query = $this->data_crud->tampil_rute($from, $to);
+		$query = $this->data_crud->tampil_rute($from, $to, $date);
 		$data['rute'] = $query;
-		$data['date'] = $date;
 		$this->load->view('v_client_rutes',$data);
  	}
 
  	public function reservation($id){
  		$where =  $id;
  		$query = $this->data_crud->join_clientreserve($where);
+ 		$data['seat'] = $this->data_crud->seat($where)->result();
+ 		$data['filter'] = $this->data_crud->filterseat($where)->result();
   		$data['reserve'] = null;
   		if($query){
    			$data['reserve'] =  $query;

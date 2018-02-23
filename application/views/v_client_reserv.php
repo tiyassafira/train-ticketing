@@ -75,12 +75,12 @@
 											<td><?php echo $r->rute_from ?></td>
 											<td><?php echo $r->rute_to ?></td>
 											<td><?php echo $r->depart_at ?></td>
-											<td><?php echo $r->price ?></td>
+											<td><?php echo "Rp. ".$r->price ?></td>
 										</tr>
 
 										<tr>
 											<td colspan="4" align="right">Total (1)</td>
-											<td><?php echo $r->price*1 ?></td>
+											<td><?php echo "Rp. ".$r->price*1 ?></td>
 											<?php } ?>
 										</tr>
 									</tbody>
@@ -94,73 +94,92 @@
 						</div>
 						<div class="row">
 							<div class="col-sm-8">
-							<form action="<?php echo base_url('client/pesan') ?>" method="post">        
-								<table class="table table-bordered">
-									<thead>
+								<form action="<?php echo base_url('client/pesan') ?>" method="post">        
+									<table class="table table-bordered">
+										<thead>
 
-										<tr>
-											<th colspan="5" bgcolor="#087aa2" style="color:white;font-size: 17px;">Isi Detail Penumpang</th>
-										</tr>
-										<tr>
-											<td colspan="5" bgcolor="#76aff7" style="color:white;font-size: 15px;">Informasi Kontak yang Dapat Dihubungi</td>
-										</tr>
-									</thead>
-									<tbody>
-										<tr><td style="border-right: none;">
-											<div class="form-group">
-												<label for="pwd">Nama</label>
-												<?php foreach ($reserve as $s) { ?>
-												<input type="hidden" class="form-control" value="<?php echo $s->id ?>" name="rute_id">
-												<?php } ?>
-												<input type="text" class="form-control" name="namapemesan">
-											</div>
-										<div class="form-group">
-												<label for="pwd">Alamat</label>
-												<input type="text" class="form-control" name="alamatpemesan">
-											</div></td>
-											<td style="border-left: none;"><div class="form-group">
-												<label for="usr">Kontak Email</label>
-												<input type="email" class="form-control" name="emailpemesan">
-											</div>
-											<div class="form-group">
-												<label for="pwd">No.Telp </label>
-												<input type="text" class="form-control" name="notelpemesan">
-											</div></td>
-										</tr>
+											<tr>
+												<th colspan="5" bgcolor="#087aa2" style="color:white;font-size: 17px;">Isi Detail Penumpang</th>
+											</tr>
+											<tr>
+												<td colspan="5" bgcolor="#76aff7" style="color:white;font-size: 15px;">Informasi Kontak yang Dapat Dihubungi</td>
+											</tr>
+										</thead>
+										<tbody>
+											<tr><td style="border-right: none;">
+												<div class="form-group">
+													<label for="pwd">Nama</label>
+													<?php foreach ($reserve as $s) { ?>
+													<input type="hidden" class="form-control" value="<?php echo $s->id ?>" name="rute_id">
+													<?php } ?>
+													<input type="text" class="form-control" name="namapemesan">
+												</div>
+												<div class="form-group">
+													<label for="pwd">Alamat</label>
+													<input type="text" class="form-control" name="alamatpemesan">
+												</div></td>
+												<td style="border-left: none;"><div class="form-group">
+													<label for="usr">Kontak Email</label>
+													<input type="email" class="form-control" name="emailpemesan">
+												</div>
+												<div class="form-group">
+													<label for="pwd">No.Telp </label>
+													<input type="text" class="form-control" name="notelpemesan">
+												</div></td>
+											</tr>
 
-										<tr>
-											<td colspan="5" bgcolor="#76aff7" style="color:white;font-size: 15px;">Data Penumpang</td>
+											<tr>
+												<td colspan="5" bgcolor="#76aff7" style="color:white;font-size: 15px;">Data Penumpang</td>
+											</tr>
+											<tr style="border-bottom: none;"><td style="border-right: none;border-bottom: none">
+												<div class="form-group">
+													<label for="sel1">Title</label>
+													<select class="form-control" name="jenkelpenumpang">
+														<option value="L">Tuan</option>
+														<option value="P">Nyonya</option>
+													</select>
+												</div></td>
+												<td style="border-left: none;border-bottom: none;"><div class="form-group">
+													<label for="usr">Nama</label>
+													<input type="text" class="form-control" name="namapenumpang">
+												</div>
+											</td>
 										</tr>
-										<tr style="border-bottom: none;"><td style="border-right: none;border-bottom: none">
-											<div class="form-group">
-												<label for="sel1">Title</label>
-												<select class="form-control" name="jenkelpenumpang">
-													<option value="L">Tuan</option>
-													<option value="P">Nyonya</option>
-												</select>
-											</div></td>
-											<td style="border-left: none;border-bottom: none;"><div class="form-group">
-												<label for="usr">Nama</label>
-												<input type="text" class="form-control" name="namapenumpang">
-											</div>
+										<tr>
+											<td colspan="2">
+												<?php 
+												$x = 1;
+												foreach ($seat as $s) {
+													while($x <= $s->seat_qty) { ?>
+<!-- 														// foreach($filter as $f)	{
+														// 	if ($x == $f->seat){
+														// 		echo $x;
+														// 	}else{
+														// 		echo $x;
+														// 	}	
+														// } -->
+<input type="checkbox" name="" <?php foreach($filter as $f) { if($x == $f->seat){ echo "checked disabled"; } } ?>>
+													<?php $x++;
+													} 
+												}
+												
+									
+												?>
 											</td>
 										</tr>
 										<tr style="border-top: none;">
 											<td align="right" colspan="2" style="border-top: none;">
-											<div class="form-group">
-												<button type="submit" class="btn btn-warning" style="width: 100px; height: 40px;">Pesan</button>
-											</div>
-										</td>
+												<div class="form-group">
+													<button type="submit" class="btn btn-warning" style="width: 100px; height: 40px;">Pesan</button>
+												</div>
+											</td>
 										</tr>
 									</tbody>
 								</table>
 							</form>
-							</div>
-							<div class="col-sm-">
-								<h3>Column 2</h3>
-								<p>Lorem ipsum dolor..</p>
-								<p>Ut enim ad..</p>
-							</div>
+						</div>
+						<div class="col-sm-4">
+
 						</div>
 					</div>
 
