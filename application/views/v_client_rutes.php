@@ -80,7 +80,7 @@
 	<td style="padding-top: 27px; padding-bottom: 27px;"><?php echo $r->depart_at; ?></td>
 	<td style="padding-top: 27px; padding-bottom: 27px;"><?php echo $r->description; ?></td>
 	<td style="padding-top: 27px; padding-bottom: 27px;"><?php echo "Rp. ".$r->price; ?></td>
-	<td style="padding-top: 15px; padding-bottom: 15px;"><a style="cursor: pointer; color:white;" title="" onclick="href='<?php echo base_url('client/reservation/'.$r->id); ?>'"><button type="submit" name="" class="btn btn-default border-radius custom-tombol">Book</button></a></td>
+	<td style="padding-top: 15px; padding-bottom: 15px;"><a style="cursor: pointer; color:white;" title="" onclick="href='<?php echo base_url("client/reservation/".$r->id."/".$_GET['qty']); ?>'"><button type="submit" name="" class="btn btn-default border-radius custom-tombol">Book</button></a></td>
 </tr>
 <?php } ?>
 </table>

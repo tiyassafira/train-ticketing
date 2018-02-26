@@ -79,13 +79,14 @@
 										</tr>
 
 										<tr>
-											<td colspan="4" align="right">Total (1)</td>
-											<td><?php echo "Rp. ".$r->price*1 ?></td>
+											<td colspan="4" align="right">Total (<?php echo $this->uri->segment(4) ?>)</td>
+											<td><?php echo "Rp. ".$r->price*$this->uri->segment(4) ?></td>
 											<?php } ?>
 										</tr>
 									</tbody>
 								</table>
 							</div>
+
 							<div class="col-sm-">
 								<h3>Column 2</h3>
 								<p>Lorem ipsum dolor..</p>
@@ -112,58 +113,54 @@
 													<?php foreach ($reserve as $s) { ?>
 													<input type="hidden" class="form-control" value="<?php echo $s->id ?>" name="rute_id">
 													<?php } ?>
-													<input type="text" class="form-control" name="namapemesan">
+													<input type="text" class="form-control" name="namapemesan" >
 												</div>
 												<div class="form-group">
 													<label for="pwd">Alamat</label>
-													<input type="text" class="form-control" name="alamatpemesan">
+													<input type="hidden" name="qty" value="<?php echo $this->uri->segment(4)?>">
+													<input type="text" class="form-control" name="alamatpemesan" >
 												</div></td>
 												<td style="border-left: none;"><div class="form-group">
 													<label for="usr">Kontak Email</label>
-													<input type="email" class="form-control" name="emailpemesan">
+													<input type="email" class="form-control" name="emailpemesan" >
 												</div>
 												<div class="form-group">
 													<label for="pwd">No.Telp </label>
-													<input type="text" class="form-control" name="notelpemesan">
+													<input type="text" class="form-control" name="notelpemesan" >
 												</div></td>
 											</tr>
 
 											<tr>
 												<td colspan="5" bgcolor="#76aff7" style="color:white;font-size: 15px;">Data Penumpang</td>
 											</tr>
-											<tr style="border-bottom: none;"><td style="border-right: none;border-bottom: none">
-												<div class="form-group">
-													<label for="sel1">Title</label>
-													<select class="form-control" name="jenkelpenumpang">
-														<option value="L">Tuan</option>
-														<option value="P">Nyonya</option>
-													</select>
-												</div></td>
-												<td style="border-left: none;border-bottom: none;"><div class="form-group">
-													<label for="usr">Nama</label>
-													<input type="text" class="form-control" name="namapenumpang">
-												</div>
-											</td>
-										</tr>
-										<tr>
-											<td colspan="2">
-												<?php 
-												$x = 1;
-												foreach ($seat as $s) {
-													while($x <= $s->seat_qty) { ?>
-<!-- 														// foreach($filter as $f)	{
-														// 	if ($x == $f->seat){
-														// 		echo $x;
-														// 	}else{
-														// 		echo $x;
-														// 	}	
-														// } -->
-<input type="checkbox" name="" <?php foreach($filter as $f) { if($x == $f->seat){ echo "checked disabled"; } } ?>>
-													<?php $x++;
+											<?php for($i=0; $i < $this->uri->segment(4); $i++) { ?>
+											<tr style="border-bottom: none;">
+												<td style="border-right: none;border-bottom: none">
+													<div class="form-group">
+														<label for="sel1">Title</label>
+														<select class="form-control" name="jenkelpenumpang[<?php echo $i ?>]" >
+															<option value="L">Tuan</option>
+															<option value="P">Nyonya</option>
+														</select>
+													</div></td>
+													<td style="border-left: none;border-bottom: none;"><div class="form-group">
+														<label for="usr">Nama</label>
+														<input type="text" class="form-control" name="namapenumpang[<?php echo $i ?>]" >
+													</div>
+												</td>
+											</tr>
+											<?php }?>
+											<tr>
+												<td colspan="2">
+
+													<?php 
+													$x = 1;
+													foreach ($seat as $s) {
+														while($x <= $s->seat_qty) { ?>
+														<input class="chk" type="checkbox" value='<?php echo $x ?>' name="kursi[]" <?php foreach($filter as $f) { if($x == $f->seat){ echo "disabled"; } } ?>>
+														<?php $x++;
 													} 
 												}
-												
-									
 												?>
 											</td>
 										</tr>

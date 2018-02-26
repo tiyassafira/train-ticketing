@@ -98,13 +98,13 @@
 				</div>
 				<div class="col-md-2 col-sm-6">
 					<div class="form-group">
-						<label>Quantity : </label>
-					<div class="input-group">
-						<input type="text" class="form-control border-radius border-right" name="seat_qty" />
-						<span class="input-group-addon border-radius custom-addon">
-							<i class="ion-ios-people"></i>
-						</span>
-					</div>
+						<label>Quantity : </label>					
+						<select class="form-control border-radius" id="sel1" name="qty">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+						</select>		
 					</div>
 				</div>
 				<div class="col-md-2 col-sm-6">
