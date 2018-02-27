@@ -46,20 +46,18 @@
 	    <!-- Collect the nav links, forms, and other content for toggling -->
 		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav navbar-right">
-					<li class="active"><a href="index.html">Home</a></li>
-					<li><a href="about.html">about</a></li>
-					<li><a href="services.html">services</a></li>
-					<li><a href="contact.html">contact</a></li>
+					<li class="active"><a href="<?php echo base_url() ?>">Home</a></li>
+					<li><a href="<?php echo base_url('client/status') ?>">Status Pesanan</a></li>
 				</ul> <!-- /.nav -->
 		    </div><!-- /.navbar-collapse -->
 	  	</div><!-- /.container -->
 	</nav>
 	<section class="tour section-wrapper container">
-		<h2 class="section-title">
-			Find a Tour
-		</h2>
+		<h3 class="section-title">
+			Pesan Tiket? 
+		</h3>
 		<p class="section-subtitle">
-			Where would you like to go?
+			Disini Aja..
 		</p>
 		<div class="row">
 			

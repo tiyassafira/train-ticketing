@@ -38,9 +38,9 @@
     <!-- Logo -->
     <a href="../../index2.html" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>A</b>LT</span>
+      <span class="logo-mini"><b>A</b></span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Admin</b>LTE</span>
+      <span class="logo-lg"><b>Admin</b></span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
@@ -333,7 +333,7 @@
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
           </a>
         </li>
-        <li class="treeview active">
+        <li class="treeview">
           <a href="">
             <i class="fa fa-map"></i>
             <span>Rutes</span>
@@ -343,7 +343,7 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="<?php echo base_url('admin/rute'); ?>"><i class="fa fa-plus"></i>Tambah</a></li>
-            <li class="active"><a href="<?php echo base_url('admin/datarute'); ?>"><i class="fa fa-database"></i> Data</a></li>
+            <li><a href="<?php echo base_url('admin/datarute'); ?>"><i class="fa fa-database"></i> Data</a></li>
           </ul>
         </li>
         <li class="treeview">
@@ -359,7 +359,7 @@
             <li><a href="<?php echo base_url('admin/datamaskapai'); ?>"><i class="fa fa-database"></i> Data</a></li>
           </ul>
         </li>
-        <li class="treeview">
+        <li class="treeview active">
           <a href="">
             <i class="glyphicon glyphicon-map-marker"></i>
             <span>Bandara</span>
@@ -369,10 +369,10 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="<?php echo base_url('admin/bandara'); ?>"><i class="fa fa-plus"></i>Tambah</a></li>
-            <li><a href="<?php echo base_url('admin/databandara'); ?>"><i class="fa fa-database"></i> Data</a></li>
+            <li class="active"><a href="<?php echo base_url('admin/databandara'); ?>"><i class="fa fa-database"></i> Data</a></li>
           </ul>
         </li>
-                <li>
+        <li>
         <a href="<?php echo base_url('admin/reservasi'); ?>">
           <i class="fa fa-file-archive-o"></i> <span>Reservasi</span>
         </a>
@@ -386,9 +386,11 @@
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-      <h1>
-        Data Rute
-      </h1>
+      <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="#">Tables</a></li>
+        <li class="active">Data tables</li>
+      </ol>
     </section>
 
     <!-- Main content -->
@@ -405,42 +407,30 @@
                 <thead>
                 <tr>
                   <th style="width: 10px">#</th>
-                  <th>Depart At</th>
-                  <th>Rute From</th>
-                  <th>Rute To</th>
-                  <th>Maskapai</th>
-                  <th>Price</th>
+                  <th>Kode</th>
+                  <th>Nama Bandara</th>
+                  <th>Kota</th>
+                  <th>Kota</th>
                   <th>Action</th>
                 </tr>
                 </thead>
                 <tbody>
                    <?php 
                   $no = 1;
-                  foreach($rute as $s){ 
+                  foreach($user as $b){ 
                   ?>
                 <tr>
                   <td><?php echo $no++ ?></td>
-                  <td><?php echo $s->date." ".$s->depart_at ?></td>
-                  <td><?php echo $s->rute_from ?></td>
-                  <td><?php echo $s->rute_to ?></td>
-                  <td><?php echo $s->description ?></td>
-                  <td><?php echo $s->price ?></td>
-                  <td><a style="cursor: pointer; color:white;" title="" onclick="href='<?php echo base_url(('admin/edit_rute/'.$s->id)); ?>'"><button class="btn btn-primary" style="height: 26px; padding: 2px; padding-left: 10px; padding-right: 10px;">Edit</button></a>
-                   <a style="cursor: pointer; color:white ;" title="" onclick="href='<?php echo base_url(('admin/hapus_rute/'.$s->id)); ?>'"> <button class="btn btn-danger" style="height: 26px; padding: 2px; padding-left: 10px; padding-right: 10px;">Remove</button></a>
+                  <td><?php echo $b->username ?></td>
+                  <td><?php echo $b->password ?></td>
+                  <td><?php echo $b->fullname ?></td>
+                  <td><?php echo $b->level ?></td>
+                  <td><a style="cursor: pointer; color:white;" title="" onclick="href='<?php echo base_url(('admin/edit_user/'.$b->id)); ?>'"><button class="btn btn-primary" style="height: 26px; padding: 2px; padding-left: 10px; padding-right: 10px;">Edit</button></a>
+                   <a style="cursor: pointer; color:white ;" title="" onclick="href='<?php echo base_url(('admin/hapus_user/'.$b->id)); ?>'"> <button class="btn btn-danger" style="height: 26px; padding: 2px; padding-left: 10px; padding-right: 10px;">Remove</button></a>
                   </td>
                 </tr>
                 <?php } ?>
                 </tbody>
-                <tfoot>
-                <tr>
-                  <th style="width: 10px">#</th>
-                  <th>Depart At</th>
-                  <th>Rute From</th>
-                  <th>Rute To</th>
-                  <th>Price</th>
-                  <th>Action</th>
-                </tr>
-                </tfoot>
               </table>
             </div>
             <!-- /.box-body -->

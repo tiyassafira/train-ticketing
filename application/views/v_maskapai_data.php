@@ -372,6 +372,11 @@
             <li><a href="<?php echo base_url('admin/databandara'); ?>"><i class="fa fa-database"></i> Data</a></li>
           </ul>
         </li>
+                <li>
+        <a href="<?php echo base_url('admin/reservasi'); ?>">
+          <i class="fa fa-file-archive-o"></i> <span>Reservasi</span>
+        </a>
+      </li>
       </ul>
     </section>
     <!-- /.sidebar -->

@@ -4,6 +4,9 @@ class Data_crud extends CI_Model {
  function tampil_datarute(){
    return $this->db->get('rute');
  }
+  function tampil_datauser(){
+   return $this->db->get('tuser');
+ }
  
  function input_datarute($data,$table){
    $this->db->insert($table,$data);
@@ -29,6 +32,29 @@ function update_datarute($where,$data,$table){
 
 function tampil_datatransportation(){
   return $this->db->get('transportation');
+}
+
+function reservasi(){
+  return $this->db->get('reservation');
+}
+
+
+function detailreservasi($where){
+  $this->db->select('*,from.nama as from, from.kota as kotafrom, from.kode as kodefrom, to.kode as kodeto, to.nama as to, to.kota as kotato');
+  $this->db->from('transportation,rute,reservation,airport as from, airport as to');
+  $this->db->where('reservation.kd_resv',$where);
+  $this->db->where('reservation.rute_id = rute.id');
+  $this->db->where('rute.rute_from = from.nama');
+  $this->db->where('rute.rute_to = to.nama');
+  $this->db->where('rute.transportationid = transportation.id');
+  return $this->db->get();
+}
+
+function detailcustomer($where){
+  $this->db->select('*');
+  $this->db->from('customer');
+  $this->db->where('customer.kd_resv',$where);
+  return $this->db->get();
 }
 
 function tampil_databandara(){
@@ -124,6 +150,11 @@ function datacustomer($where){
 
 
 function insert_img($where,$data){
+ $this->db->where($where);
+ $this->db->update('reservation',$data);
+}
+
+function confirm($where,$data){
  $this->db->where($where);
  $this->db->update('reservation',$data);
 }

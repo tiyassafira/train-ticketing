@@ -46,24 +46,24 @@
 					<!-- Collect the nav links, forms, and other content for toggling -->
 					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 						<ul class="nav navbar-nav navbar-right">
-							<li class="active"><a href="index.html">Home</a></li>
-							<li><a href="about.html">about</a></li>
-							<li><a href="services.html">services</a></li>
-							<li><a href="contact.html">contact</a></li>
+							<li class="active"><a href="<?php echo base_url() ?>">Home</a></li>
+					<li><a href="<?php echo base_url('client/status') ?>">Status Pesanan</a></li>
 						</ul> <!-- /.nav -->
 					</div><!-- /.navbar-collapse -->
 				</div><!-- /.container -->
 			</nav>
 			<section class="tour section-wrapper container">
 				<div class="container">
+								<hr> 
 					<div class="row">
 						<div class="col-sm-8">
-							<h2>Bordered Table</h2>         
+						<br>
+
 							<table class="table table-bordered">
 								<thead>
 									<?php foreach ($reserve as $r) { ?>
 									<tr>
-										<th colspan="4">Firstname</th>
+										<th colspan="4">Rute</th>
 										<th width="20%"><?php echo $r->date ?></th>
 									</tr>
 								</thead>
@@ -88,11 +88,13 @@
 							</div>
 
 							<div class="col-sm-">
-								<h3>Column 2</h3>
-								<p>Lorem ipsum dolor..</p>
-								<p>Ut enim ad..</p>
+
 							</div>
 						</div>
+						<?php if ($this->uri->segment(4) > 4) {
+							echo "Tidak Valid";
+						
+						}else{ ?>
 						<div class="row">
 							<div class="col-sm-8">
 								<form action="<?php echo base_url('client/pesan') ?>" method="post">        
@@ -133,6 +135,7 @@
 											<tr>
 												<td colspan="5" bgcolor="#76aff7" style="color:white;font-size: 15px;">Data Penumpang</td>
 											</tr>
+
 											<?php for($i=0; $i < $this->uri->segment(4); $i++) { ?>
 											<tr style="border-bottom: none;">
 												<td style="border-right: none;border-bottom: none">
@@ -179,6 +182,7 @@
 
 						</div>
 					</div>
+					<?php } ?>
 
 				</section>
 

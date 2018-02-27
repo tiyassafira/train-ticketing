@@ -372,6 +372,11 @@
             <li class="active"><a href="<?php echo base_url('admin/databandara'); ?>"><i class="fa fa-database"></i> Data</a></li>
           </ul>
         </li>
+        <li>
+        <a href="<?php echo base_url('admin/reservasi'); ?>">
+          <i class="fa fa-file-archive-o"></i> <span>Reservasi</span>
+        </a>
+      </li>
       </ul>
     </section>
     <!-- /.sidebar -->
@@ -381,10 +386,6 @@
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-      <h1>
-        Data Tables
-        <small>advanced tables</small>
-      </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
         <li><a href="#">Tables</a></li>

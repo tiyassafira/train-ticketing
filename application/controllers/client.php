@@ -67,24 +67,24 @@ class Client extends CI_Controller
 		}
 		for ($i=0; $i < $qty; $i++) { 
 			$data= array(
-			'jenkel' => $this->input->post('jenkelpenumpang['.$i.']'),
-			'nama' => $this->input->post('namapenumpang['.$i.']'),
-			'kd_resv' => $kd_resv,
-			'seat' => $namaseat[$i]
+				'jenkel' => $this->input->post('jenkelpenumpang['.$i.']'),
+				'nama' => $this->input->post('namapenumpang['.$i.']'),
+				'kd_resv' => $kd_resv,
+				'seat' => $namaseat[$i]
 			);
 
 			$this->data_crud->input_datareservation($data,'customer');
 		}
 
-			$data = array(
-				'rute_id' => $rute_id,
-				'kd_resv' => $kd_resv,
-				'namapemesan' => $namapemesan,
-				'alamatpemesan' => $alamatpemesan,
-				'emailpemesan' => $emailpemesan,
-				'notelpemesan' => $notelpemesan,
-				'status' => 'Menunggu Pembayaran'
-			);
+		$data = array(
+			'rute_id' => $rute_id,
+			'kd_resv' => $kd_resv,
+			'namapemesan' => $namapemesan,
+			'alamatpemesan' => $alamatpemesan,
+			'emailpemesan' => $emailpemesan,
+			'notelpemesan' => $notelpemesan,
+			'status' => 'Menunggu Pembayaran'
+		);
 		
 		$this->data_crud->input_datareservation($data,'reservation');
 		
@@ -117,9 +117,10 @@ class Client extends CI_Controller
 			$format = str_replace('image', '',$gbr['file_type']);
 			$where = array('kd_resv' => $nama);
 			$data = array(
-				'img' => $gbr['file_name']);
+				'img' => $gbr['file_name'],
+				'status' => "Menunggu Konfirmasi");
 			$this->data_crud->insert_img($where,$data);
-			echo "sukses";
+			redirect('client/cariresv2/'.$nama);
 		}
 	}
 	function email(){
@@ -147,6 +148,50 @@ class Client extends CI_Controller
 			echo "dadi";
 		}
 
+	}
+
+	function status(){
+		$this->load->view('v_client_status');
+	}
+
+	function cariresv(){
+		$id = $this->input->post('kdreservasi');
+		$data['resv'] = $this->data_crud->detailreservasi($id)->result();
+		$data['cust'] = $this->data_crud->detailcustomer($id)->result();
+		$this->load->view('v_client_detail',$data);
+	}
+
+	function upload2(){
+		$nama = $this->input->post('kode');
+		$config['upload_path']	= './r/';
+		$config['allowed_types'] = 'jpg|jpeg|png';
+		$config['max_size'] = '2048';
+		$config['max_width'] = '4048';
+		$config['max_height'] = '4048';
+		$config['file_name'] = $nama;
+		$this->load->library('upload',$config);
+
+		if(! $this->upload->do_upload('berkas')){
+			
+			echo "error";
+		}else{
+			$gbr = $this->upload->data();
+			$format = str_replace('image', '',$gbr['file_type']);
+			$where = array('kd_resv' => $nama);
+			$data = array(
+				'img' => $gbr['file_name'],
+				'status' => "Menunggu Konfirmasi");
+			$this->data_crud->insert_img($where,$data);
+			redirect('client/cariresv2/'.$nama);
+		}
+	}
+
+
+	function cariresv2($kode){
+		$id = $kode;
+		$data['resv'] = $this->data_crud->detailreservasi($id)->result();
+		$data['cust'] = $this->data_crud->detailcustomer($id)->result();
+		$this->load->view('v_client_detail',$data);
 	}
 } 
 ?>
